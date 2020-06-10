@@ -1,0 +1,32 @@
+{% extends 'base html'%}
+
+{% block cuerpo %}
+	<form method="POST">
+		<div class="row">
+			<strong><label> {{ form.identidad.label }} </label>
+			<strong> 
+			{{form.identidad}}
+		</div>
+		<div class="row">
+			<strong><label> {{ form.p_nombre.label }} </label>
+			</strong>
+			{{form.p_nombre}}
+			<strong><label> {{ form.s_nombre.label }} </label>
+			</strong>
+			{{form.s_nombre}}
+			<strong><label> {{ form.p_apellido.label }} </label>
+			</strong>
+			{{form.p_apellido}}
+			<strong><label> {{ form.s_apellido.label }} </label>
+			</strong>
+			{{form.s_apellido}}
+		</div>
+		<div class="row">
+			<strong><label> {{ form.fecha_nacimiento.label }}
+			</label></strong>
+			{{form.fecha_nacimiento}}
+		</div>
+		{% csrf_token %}
+		<button>Agregar</button>
+	</form>
+{% enblock %}
