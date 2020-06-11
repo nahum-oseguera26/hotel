@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block cuerpo %}
+<h2>FACTURA</h2>
+<div id="datos_cliente">
+	<h4>Cliente</h4>
+	<strong>Identidad: </strong>
+	{{ encabezado.Cliente.identidad }}<br>
+	<strong>Nombre: </strong>
+	{{ encabezado.Cliente.nombre_completo }}<br>
+</div>
+<div id="detalle_factura">          
+	<table>
+		<thead>
+			<tr>
+				<th>No</th>
+				<th>Habitacion</th>
+				<th>Fecha Retiro - Dias</th>
+				<th>Monto- L</th>
+			</tr>
+		</thead>
+	<tbody>
+			{% for det in detalle %}
+			<tr>
+			
+				<td>
+					{{ forloop.counter }}
+				</td>
+				<td>
+					{{ det.habitacion.no_habitacion }}
+					{{ det.habitacion.Habitacion }}
+				</td>
+				<td>
+					{{ det.habitacion.fecha_retiro }}
+					{{ det.habitacion.dias_ocupados}}
+				</td>
+				<td>
+					L. {{ det.monto }}
+				</td>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>
+<strong>El total a pagar es L. {{ total }} </strong>
+</div>
+{% endblock %}

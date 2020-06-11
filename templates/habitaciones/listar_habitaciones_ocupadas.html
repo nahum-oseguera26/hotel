@@ -1,0 +1,41 @@
+{% extends  'base.html' %}
+
+{% block cuerpo %}
+	<h3 align="center" class="#64dd17 light-green accent-4">listado de habitaciones ocupadas</h3>
+	{% if habitaciones_ocupadas %}
+	<table>
+		<thead>
+			<tr>
+				<th class="#00796b teal darken-2">NO</th>
+				<th class="#00796b teal darken-2">descripcion</th>
+				<th class="#1e88e5 blue darken-1">numero de habitacion</th>
+				<th class="#42a5f5 blue lighten-1">fecha_registro</th>
+				<th class="#26c6da cyan lighten-1">fecha_retiro</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for habitacion in habitaciones_ocupadas%}
+				<tr>
+					<td> {{ forloop.counter }} </td>
+					<td> {{ habitacion.habitacion}} </td>
+					<td> {{ habitacion.no_habitacion}} </td>
+					<td> {{ habitacion.fecha_registro|date:'l d F Y' }} </td>
+					<td> {{ habitacion.fecha_retiro}} </td>
+					<td>
+						<button class='btn blue-grey darken-1'>
+						<i class="large material-icons">
+						info_outline</i></button>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	{% else %}
+	<p>
+		<strong>
+			no existen habitaciones ocupadas de momento.
+		</strong>
+	</p>
+	</table>
+	{% endif %}
+{% endblock %}

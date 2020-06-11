@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block cuerpo %}
+    <h1>reporte de emision de facturas personalizado</h1>
+    <form method="post">
+        {{ form }}
+        {% csrf_token %}
+        <button class=btn btn-primary">consultar</button>
+    </form>
+{% endblock %}

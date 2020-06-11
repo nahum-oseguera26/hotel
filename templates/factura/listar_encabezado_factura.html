@@ -1,0 +1,38 @@
+{% extends  'base.html' %}
+
+{% block cuerpo %}
+	<h3 align="center" class="#2196f3 blue">listado de encabezado factura</h3>
+	{% if encabezado_factura %}
+	<table>
+		<thead>
+			<tr>
+				<th class="#2196f3 yellow">factura</th>
+				<th class="#2196f3 yellow">Cliente</th>
+				<th class="#2196f3 yellow">Fecha_proceso</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for factura in encabezado_factura%}
+				<tr>
+					<td class="#2196f3 blue">{{ forloop.counter }} </td>
+					<td class="#1e88e5 blue darken-5">{{ factura.Cliente}} </td>
+					<td class="#2196f3 blue">{{ factura.Fecha_proceso }} </td>
+					<td>
+						<a href="{% url 'tienda:ver_factura' factura.factura %}">
+						<button class='btn blue-grey darken-1'>
+						<i class="large material-icons">
+						info_outline</i></button>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	{% else %}
+	<p>
+		<strong>
+			no existen encabezado factura en la base de datos.
+		</strong>
+	</p>
+	</table>
+	{% endif %}
+{% endblock %}
